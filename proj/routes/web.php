@@ -69,7 +69,6 @@ Route::get('/typology/{id}', 'TypologyController@typologyShow')->name('typology-
 
 ////////////////////////
 
-
 Route::get('/user/{id}','UserController@show')->name('user-show');
 
 Route::get('/test', 'UserController@index')->name('index');
