@@ -99,6 +99,21 @@
 
                         </div>
 
+                        <label for="typologies[]">Typologies</label>
+
+                        {{-- contenitore checkbox --}}
+                        <div class="content-checkbox">
+
+                        @foreach ($typologies as $typology)
+
+                            <input type="checkbox" name="typologies[]" value="{{ $typology -> id }}">{{ $typology -> type }} <br>
+
+                        @endforeach
+
+                        </div>
+
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
