@@ -46,6 +46,7 @@ class RegisterController extends Controller
             'indirizzo' => ['required' ,'string','max:255'],
             'piva' => ['required','string','min:11','max:11','digits:11','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'typologies' => ['required']
         ]);
     }
 
@@ -57,12 +58,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'indirizzo' => $data['indirizzo'],
-            'piva' => $data['piva'],
-            'password' => Hash::make($data['password']),
-        ]);
+      $user = User::create([
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'indirizzo' => $data['indirizzo'],
+          'piva' => $data['piva'],
+          'password' => Hash::make($data['password']),
+      ]);
+
+        $typologies = Typology::findOrFail($data['typologies']);
+        $user -> typologies() -> attach($typologies);
+
+      return $user;
     }
 }
