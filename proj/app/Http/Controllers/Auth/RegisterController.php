@@ -48,6 +48,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'typologies' => ['required']
         ]);
+
+        // prova commento
     }
 
     /**
