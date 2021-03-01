@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 // brandon branch
-// matteo commento 
+// matteo commento
 
 
 // Authentication Routes...
@@ -27,7 +27,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@getRegistrationForm')->name('register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
