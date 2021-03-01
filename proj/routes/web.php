@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// brandon branch
+
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
