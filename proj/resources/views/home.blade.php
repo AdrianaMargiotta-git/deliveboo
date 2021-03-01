@@ -5,17 +5,29 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            </div>
+            <div class="card">
 
-                    {{ __('You are logged in!') }}
-                </div>
+              <div class="card-header">
+                <h1>Benvenuto {{ $user -> name}}</h1>
+                <p>Qui trovi i tuoi dati di registrazione</p>
+                <ul class="card-body">
+                  <li>Name:{{ $user -> name }}</li>
+                  <li>Address:{{ $user -> indirizzo }}</li>
+                  <li>Mail:{{ $user -> email }}</li>
+                  <li>Piva:{{ $user -> piva }}</li>
+
+                  <a href="{{ route('dish-create')}}">Crea nuovo piatto</a>
+                  <a href="{{ route('typology-add')}}">Aggiungi una tipologia</a>
+
+                  <br><br>
+                  @foreach ($user -> typologies as $typology)
+                     <li>{{ $typology -> type}}</li>
+                  @endforeach
+                </ul>
+              </div>
+
             </div>
         </div>
     </div>

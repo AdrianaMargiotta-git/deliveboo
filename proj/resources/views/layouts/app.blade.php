@@ -49,6 +49,15 @@
                                 </li>
                             @endif
                         @else
+                          <div class="card-body">
+                              @if (session('status'))
+                                  <div class="alert alert-success" role="alert">
+                                      {{ session('status') }}
+                                  </div>
+                              @endif
+
+                              {{ __('You are logged in!') }}
+                          </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -66,6 +75,7 @@
                                     </form>
                                 </div>
                             </li>
+
                         @endguest
                     </ul>
                 </div>
