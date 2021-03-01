@@ -67,7 +67,7 @@ Route::post('/typologies/store/','HomeController@typologyStore')->name('typology
 Route::get('/typologies','TypologyController@typologyIndex')->name('typologies-index');
 Route::get('/typology/{id}', 'TypologyController@typologyShow')->name('typology-show');
 
-////////////////////////
+///////////////////////
 
 Route::get('/user/{id}','UserController@show')->name('user-show');
 
