@@ -1,13 +1,15 @@
 <?php
+// Controller
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use DB;
 use Illuminate\Support\Facades\DB;
 
 class LiveSearch extends Controller
 {
     function index(){
-     return view('live_search');
+     return view('clientPage.live_search');
     }
 
     function action(Request $request){
@@ -20,9 +22,8 @@ class LiveSearch extends Controller
             ->where('type', 'like', '%'.$query.'%')
             ->orderBy('type', 'desc')
             ->get();
-        // }
         }else{
-        //   altrimenti mostra tutti i dishes fino a quando non inserisco qualcosa qualcosa nella searchbar
+          //altrimenti mostra tutti i dishes fino a quando non inserisco qualcosa qualcosa nella searchbar
           $data = DB::table('typologies')
             ->orderBy('type', 'desc')
             ->get();
@@ -32,15 +33,9 @@ class LiveSearch extends Controller
           //una volta eseguita la ricerca, se il totale delle righe è maggiore di 0 mostrami una tabella con tutti i risultati
           foreach($data as $row){
             $output .= '
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                        <td>'.$row->type.'</td>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+            <tr>
+            <td>'.$row->type.'</td>
+            </tr>
             ';
           }
         }else{
