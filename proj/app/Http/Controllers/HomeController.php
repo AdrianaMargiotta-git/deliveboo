@@ -90,23 +90,4 @@ class HomeController extends Controller
 
     }
 
-    ////// TEST ASSOCIAZIONE TYPOLOGIES ALL'UTENTE LOGGATO
-
-    public function typologyAdd() {
-
-      $typologies = Typology::all();
-      return view('pages.typology-add',compact('typologies'));
-    }
-
-    public function typologyStore(Request $request) {
-
-     $data = $request -> all();
-
-     $user = Auth::user();
-     $typologies = Typology::findOrFail($data['typologies']);
-     $user -> typologies() -> sync($typologies);
-
-     return redirect() -> route('home');
-
-    }
 }
