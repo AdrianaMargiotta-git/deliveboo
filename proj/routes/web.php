@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Ricerca avanzata
+Route::get('/live_search', 'LiveSearch@index');
+Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -24,7 +27,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::get('register', 'Auth\RegisterController@getRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
@@ -58,9 +61,6 @@ Route::post('/dish/update/{id}', 'HomeController@dishUpdate')->name('dish-update
 Route::get('/dish/delete/{id}','HomeController@dishDelete')->name('dish-delete');
 
 /////////////////
-
-Route::get('/typologies/add','HomeController@typologyAdd')->name('typology-add');
-Route::post('/typologies/store/','HomeController@typologyStore')->name('typology-store');
 
 ///////// TYPOLOGY CONTROLLER USER NON REGISTRATO ///////////
 

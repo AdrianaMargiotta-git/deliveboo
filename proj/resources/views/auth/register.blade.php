@@ -99,18 +99,25 @@
 
                         </div>
 
-                        <label for="typologies[]">Typologies</label>
+                        <div class="form-group row">
+                            <label for="typologyies[]" class="col-md-4 col-form-label text-md-right">{{ __('Tipologia') }}</label>
 
-                        {{-- contenitore checkbox --}}
-                        <div class="content-checkbox">
+                            <div class="col-md-6">
 
-                        @foreach ($typologies as $typology)
+                              @foreach ($typologies as $typology)
+                               <div>
+                                <input id="typology_id" type="checkbox" class=" @error('typology_id') is-invalid @enderror" name="typologies[]" value="{{ $typology -> id}}">
+                                 {{ $typology -> type}}
+                               </div>
 
-                            <input type="checkbox" name="typologies[]" value="{{ $typology -> id }}">{{ $typology -> type }} <br>
+                              @endforeach
 
-                        @endforeach
-
-                        </div>
+                                @error('typology_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
                         </div>
 

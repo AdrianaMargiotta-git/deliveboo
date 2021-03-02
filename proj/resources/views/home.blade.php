@@ -18,9 +18,9 @@
                   <li>Mail:{{ $user -> email }}</li>
                   <li>Piva:{{ $user -> piva }}</li>
 
-                  <a href="{{ route('dish-create')}}">Crea nuovo piatto</a>
-                  <a href="{{ route('typology-add')}}">Aggiungi una tipologia</a>
-
+                  
+                  <br><br>
+                 
                   <br><br>
                   @foreach ($user -> typologies as $typology)
                      <li>{{ $typology -> type}}</li>
