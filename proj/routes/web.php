@@ -61,6 +61,7 @@ Route::post('/dish/update/{id}', 'HomeController@dishUpdate')->name('dish-update
 Route::get('/dish/delete/{id}','HomeController@dishDelete')->name('dish-delete');
 
 /////////////////
+Route::get('/order/index', 'HomeController@orderIndex')->name('order-index');
 
 ///////// TYPOLOGY CONTROLLER USER NON REGISTRATO ///////////
 
@@ -70,5 +71,3 @@ Route::get('/typology/{id}', 'TypologyController@typologyShow')->name('typology-
 ///////////////////////
 
 Route::get('/user/{id}','UserController@show')->name('user-show');
-
-Route::get('/test', 'UserController@index')->name('index');
