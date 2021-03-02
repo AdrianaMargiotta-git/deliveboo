@@ -85,7 +85,8 @@
                     Welcome to Booliveroo
                 </div>
                 {{-- aggiungere searchbar, lista tipologie, lista ristoranti, jumbotron --}}
-                
+                <a href="{{ route('live_search') }}">Scopri i nostri ristoranti</a>
+
             </div>
 
         </div>
