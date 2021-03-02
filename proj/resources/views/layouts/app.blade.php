@@ -71,6 +71,7 @@
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('dish-index')}}">Vedi il menu</a>
+                                    <a class="dropdown-item" href="{{route('order-index')}}">Mostrami gli ordini</a>
 
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
