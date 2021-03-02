@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 //Ricerca avanzata
-Route::get('/live_search', 'LiveSearch@index');
+Route::get('/live_search', 'LiveSearch@index') -> name('live_search');
 Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
 
 // Authentication Routes...
