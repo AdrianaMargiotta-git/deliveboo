@@ -38,8 +38,9 @@ class HomeController extends Controller
 
     public function dishIndex() {
       // prendiamo tutti i piatti
+      $user = Auth::user();
       $dishes = Dish::all();
-      return view('pages.dish-index',compact('dishes'));
+      return view('pages.dish-index',compact('dishes', 'user'));
     }
 
     public function dishCreate() {
@@ -63,7 +64,7 @@ class HomeController extends Controller
       $newDish -> user() -> associate($user); // associamo il piatto creato all'utente loggato.
       $newDish -> save(); // salviamo il piatto creato.
 
-      return redirect() -> route('dish-show', $newDish -> id);
+      return redirect() -> route('dish-index');
     }
 
     public function dishEdit($id) {
@@ -77,7 +78,7 @@ class HomeController extends Controller
       // aggiorniamo la modifica del piatto
       $dish = Dish::findOrFail($id);
       $dish -> update($request -> all());
-      return redirect() -> route('dish-show', $dish -> id);
+      return redirect() -> route('home');
 
     }
       public function dishDelete($id) {
@@ -86,27 +87,8 @@ class HomeController extends Controller
 
       $dish -> delete();
 
-      return redirect() -> route('dish-index');
+      return redirect() -> route('home');
 
     }
 
-    ////// TEST ASSOCIAZIONE TYPOLOGIES ALL'UTENTE LOGGATO
-
-    public function typologyAdd() {
-
-      $typologies = Typology::all();
-      return view('pages.typology-add',compact('typologies'));
-    }
-
-    public function typologyStore(Request $request) {
-
-     $data = $request -> all();
-
-     $user = Auth::user();
-     $typologies = Typology::findOrFail($data['typologies']);
-     $user -> typologies() -> sync($typologies);
-
-     return redirect() -> route('home');
-
-    }
 }

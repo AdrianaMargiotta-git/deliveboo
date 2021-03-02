@@ -84,10 +84,12 @@
                 <div class="title m-b-md">
                     Welcome to Booliveroo
                 </div>
-
+                {{-- aggiungere searchbar, lista tipologie, lista ristoranti, jumbotron --}}
+                
             </div>
 
         </div>
 
     </body>
+
 </html>
