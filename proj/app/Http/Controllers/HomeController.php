@@ -87,8 +87,14 @@ class HomeController extends Controller
 
       $dish -> delete();
 
-      return redirect() -> route('home');
+      return redirect() -> route('dish-index');
 
+    }
+
+    public function orderIndex(){
+      $user = Auth::user();
+      $orders = Order::all();
+      return view('pages.order-index',compact('orders', 'user'));
     }
 
 }
