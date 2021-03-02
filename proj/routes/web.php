@@ -17,12 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Ricerca avanzata
 Route::get('/live_search', 'LiveSearch@index');
 Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
-
-// brandon branch
-// matteo commento
-
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
