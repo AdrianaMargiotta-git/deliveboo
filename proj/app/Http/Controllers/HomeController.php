@@ -44,7 +44,7 @@ class HomeController extends Controller
     }
 
     public function dishCreate() {
-
+      // visulizzare pagina crea piatto
       return view('pages.dish-create');
     }
 
@@ -78,7 +78,7 @@ class HomeController extends Controller
       // aggiorniamo la modifica del piatto
       $dish = Dish::findOrFail($id);
       $dish -> update($request -> all());
-      return redirect() -> route('home');
+      return redirect() -> route('dish-index');
 
     }
       public function dishDelete($id) {

@@ -20,15 +20,17 @@
 
         <p>
 
-      NOME DEL PIATTO:    {{ $dish -> name }} <br>
+          {{ $dish -> name }} ({{ $dish -> price }}&#8364;)<br>
 
-          Prezzo Piatto: {{ $dish -> price }}$
+          Ingredienti: {{ $dish -> ingredients }}
+
+          <i class="fas fa-shopping-cart"></i>
 
         </p>
 
       @endforeach
 
-      <h2>ORDINI:</h2>
+      {{-- <h2>ORDINI:</h2>
 
       @foreach ($user -> dishes as $dish)
 
@@ -47,7 +49,7 @@
           @php
             $dishPrice = 0;
           @endphp
-          
+
           @foreach ($order -> dishes as $dish)
 
            @php
@@ -66,7 +68,7 @@
 
         @endforeach
 
-      @endforeach
+      @endforeach --}}
 
     </div>
 

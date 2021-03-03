@@ -19,7 +19,6 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('mobile');
-            $table->string('pay_method');
             $table->string('address');
             $table->boolean('status');
             $table->integer('price');
