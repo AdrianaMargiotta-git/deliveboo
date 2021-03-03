@@ -16,6 +16,10 @@ class LiveSearch extends Controller
       if($request->ajax()){
         $output = '';
         $query = $request->get('query');
+
+        $users = DB::table('users')
+          ->get();
+
         if($query != ''){
           //mostra tutti i dishes corrispodenti a ciò che è stato inserito nella searchbar
           $data = DB::table('typologies')
@@ -31,12 +35,21 @@ class LiveSearch extends Controller
         $total_row = $data->count();
         if($total_row > 0){
           //una volta eseguita la ricerca, se il totale delle righe è maggiore di 0 mostrami una tabella con tutti i risultati
-          foreach($data as $row){
-            $output .= '
-            <tr>
-            <td>'.$row->type.'</td>
-            </tr>
-            ';
+          // foreach($data as $row){
+          //   $output .=
+          //
+          //     $row -> type . '<br>'
+          //
+          //   ;
+          // }
+
+          foreach($users as $user){
+            $output .=
+
+              '<a href="' . route('user-show', $user -> id ) . '">' . $user -> name . '</a>' . '<br>'
+
+            ;
+
           }
         }else{
           //altrimenti mostra No Data Found ($total_row=0)
