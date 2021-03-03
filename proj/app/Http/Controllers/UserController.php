@@ -12,7 +12,7 @@ class UserController extends Controller
 
     $user = User::findOrFail($id);
 
-    return view('pages.user-show',compact('user'));
+    return view('clientPage.user-show',compact('user'));
   }
 
 }

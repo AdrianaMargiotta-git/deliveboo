@@ -10,7 +10,6 @@ class Order extends Model
     'name',
     'lastname',
     'mobile',
-    'pay_method',
     'status',
     'address',
     'price'
